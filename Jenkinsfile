@@ -2,7 +2,7 @@ pipeline {
    agent any
    environment {
        registry = "maugust17/PruebaJenkins"
-       GOCACHE = "/tmp"
+       GOCACHE = "c:\tmp"
    }
    stages {
        stage('Build') {
