@@ -1,4 +1,13 @@
-docker.image('maven:3.3.3-jdk-8').inside {
-  git '…your-sources…'
-  sh 'mvn -B clean install'
-}
+pipeline {
+        agent { docker { image 'maven:3.3.3' } }
+        stages {
+            stage('build') {
+                environment {
+                  HOME="."
+                }
+                steps {
+                    sh 'mvn --version'
+                }
+           }
+        }
+    }
