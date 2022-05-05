@@ -1,12 +1,6 @@
-pipeline {
-    agent {
-        docker { image 'node:16.13.1-alpine' }
-    }
-    stages {
-        stage('Test') {
-            steps {
-                sh 'node --version'
-            }
-        }
-    }
+node {
+  git '…'
+  docker.image('mysql').withRun {c ->
+    sh './test-with-local-db'
+  }
 }
